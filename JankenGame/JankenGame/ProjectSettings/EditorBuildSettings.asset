@@ -1,0 +1,14 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/JankenStart.unity
+    guid: 53023da299e52c041acac0dd64f787d4
+  - enabled: 1
+    path: Assets/JankenResult.unity
+    guid: 391a86565360f194f8e49db0ef828a2d
+  m_configObjects: {}
