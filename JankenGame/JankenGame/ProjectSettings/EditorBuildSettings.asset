@@ -6,9 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/JankenStart.unity
+    path: Assets/Scenes/JankenStart.unity
     guid: 53023da299e52c041acac0dd64f787d4
   - enabled: 1
-    path: Assets/JankenResult.unity
+    path: Assets/Scenes/JankenResult.unity
     guid: 391a86565360f194f8e49db0ef828a2d
   m_configObjects: {}
