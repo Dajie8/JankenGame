@@ -25,7 +25,7 @@ public class jankenResult : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI resultText;
 
-    private Result resultType;
+    [SerializeField] Result resultType;
 
     private void Start()
     {
@@ -40,7 +40,6 @@ public class jankenResult : MonoBehaviour
         myHand.sprite = Resources.Load<Sprite>(string.Format("HandImage/{0}",Data.playerHand));
         cpuHand.sprite = Resources.Load<Sprite>(string.Format("HandImage/{0}",cpuHandNum));
 
-        //var resultType = GetResult((HandType)Data.playerHand,(HandType)cpuHandNum);
         switch(resultType)
         {
             case Result.Win:
@@ -53,5 +52,53 @@ public class jankenResult : MonoBehaviour
                 resultText.text = "DREW";
                 break;
         }
+    }
+
+    public Result GetResult(HandType myHand, HandType cpuHand)
+    {
+        switch(myHand)
+        {
+            case HandType.Rock:
+               switch(cpuHand)
+               {
+                   case HandType.Rock:
+                       return Result.Drew;
+                    case HandType.Scissor:
+                       return Result.Win;
+                    case HandType.Papor:
+                       return Result.Lose;
+               }
+               return Result.Lose;
+            
+            case HandType.Scissor:
+               switch(cpuHand)
+               {
+                   case HandType.Rock:
+                       return Result.Lose;
+                    case HandType.Scissor:
+                        return Result.Drew;
+                    case HandType.Papor:
+                        return Result.Win;
+               }
+               return Result.Lose;
+
+            case HandType.Papor:
+                switch(cpuHand)
+                {
+                    case HandType.Rock:
+                        return Result.Win;
+                    case HandType.Scissor:
+                        return Result.Lose;
+                    case HandType.Papor:
+                        return Result.Drew;
+                }
+                return Result.Lose;
+        }
+        return Result.Lose;
+    }
+
+    public void OnclickRetry()
+    {
+        SceneManager.LoadScene("JankenStart");
     }
 }
