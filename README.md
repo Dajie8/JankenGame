@@ -1,1 +1,0 @@
-# janken_muri
