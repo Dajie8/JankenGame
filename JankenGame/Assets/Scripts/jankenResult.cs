@@ -10,22 +10,22 @@ public enum HandType
     Papor = 3,
 }
 
-public enum Result
+public enum ResultType
 {
     Win = 1,
     Lose = 2,
     Drew = 3,
 }
 
-public class jankenResult : MonoBehaviour
+public class JankenResult : MonoBehaviour
 {
-    [SerializeField] Image myHand;
+    [SerializeField] Image myHandImage;
 
-    [SerializeField] Image cpuHand;
+    [SerializeField] Image cpuHandImage;
 
     [SerializeField] TextMeshProUGUI resultText;
 
-    [SerializeField] Result resultType;
+    [SerializeField] ResultType resultType;
 
     private void Start()
     {
@@ -34,27 +34,27 @@ public class jankenResult : MonoBehaviour
 
     private void Setup()
     {
-        var Data = Resources.Load<myHandData>("myHandData");
+        var Data = Resources.Load<MyHandData>("myHandData");
         var cpuHandNum = Random.Range(1,3);
 
-        myHand.sprite = Resources.Load<Sprite>(string.Format("HandImage/{0}",Data.playerHand));
-        cpuHand.sprite = Resources.Load<Sprite>(string.Format("HandImage/{0}",cpuHandNum));
+        myHandImage.sprite = Resources.Load<Sprite>(string.Format("HandImage/{0}",Data.playerHand));
+        cpuHandImage.sprite = Resources.Load<Sprite>(string.Format("HandImage/{0}",cpuHandNum));
 
         switch(resultType)
         {
-            case Result.Win:
+            case ResultType.Win:
                 resultText.text = "WIN";
                 break;
-            case Result.Lose:
+            case ResultType.Lose:
                 resultText.text = "LOSE";
                 break;
-            case Result.Drew:
+            case ResultType.Drew:
                 resultText.text = "DREW";
                 break;
         }
     }
 
-    public Result GetResult(HandType myHand, HandType cpuHand)
+    public ResultType GetResult(HandType myHand, HandType cpuHand)
     {
         switch(myHand)
         {
@@ -62,39 +62,39 @@ public class jankenResult : MonoBehaviour
                switch(cpuHand)
                {
                    case HandType.Rock:
-                       return Result.Drew;
+                       return ResultType.Drew;
                     case HandType.Scissor:
-                       return Result.Win;
+                       return ResultType.Win;
                     case HandType.Papor:
-                       return Result.Lose;
+                       return ResultType.Lose;
                }
-               return Result.Lose;
+               return ResultType.Lose;
             
             case HandType.Scissor:
                switch(cpuHand)
                {
                    case HandType.Rock:
-                       return Result.Lose;
+                       return ResultType.Lose;
                     case HandType.Scissor:
-                        return Result.Drew;
+                        return ResultType.Drew;
                     case HandType.Papor:
-                        return Result.Win;
+                        return ResultType.Win;
                }
-               return Result.Lose;
+               return ResultType.Lose;
 
             case HandType.Papor:
                 switch(cpuHand)
                 {
                     case HandType.Rock:
-                        return Result.Win;
+                        return ResultType.Win;
                     case HandType.Scissor:
-                        return Result.Lose;
+                        return ResultType.Lose;
                     case HandType.Papor:
-                        return Result.Drew;
+                        return ResultType.Drew;
                 }
-                return Result.Lose;
+                return ResultType.Lose;
         }
-        return Result.Lose;
+        return ResultType.Lose;
     }
 
     public void OnclickRetry()

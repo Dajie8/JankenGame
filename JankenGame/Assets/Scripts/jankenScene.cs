@@ -4,22 +4,22 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 
-public class jankenScene : MonoBehaviour
+public class JankenScene : MonoBehaviour
 {
-    private myHandData Data ;
+    private MyHandData handData ;
 
     private void Awake()
     {
-        Data = Resources.Load<myHandData>("myHandData");
-        if (Data.playerHand > 0)
+        handData = Resources.Load<MyHandData>("myHandData");
+        if (handData.playerHand > 0)
         {
-            Data.playerHand = 0;
+            handData.playerHand = 0;
         }
     }
 
     public void OnTapButton(int playerHandNum)
     {
-        Data.playerHand = playerHandNum;
+        handData.playerHand = playerHandNum;
         SceneManager.LoadScene("JankenResult");
     }
 }
