@@ -25,7 +25,6 @@ public class JankenResult : MonoBehaviour
 
     [SerializeField] TextMeshProUGUI resultText;
 
-    [SerializeField] ResultType resultType;
 
     private void Start()
     {
@@ -34,13 +33,14 @@ public class JankenResult : MonoBehaviour
 
     private void Setup()
     {
-        var Data = Resources.Load<MyHandData>("myHandData");
+        var data = Resources.Load<MyHandData>("myHandData");
         var cpuHandNum = Random.Range(1,3);
+        var result = getResult((HandType)data.playerHand,(HandType)cpuHandNum);
+       
+        myHandImage.sprite = Resources.Load<Sprite>(string.Format("handImage",data.playerHand));
+        cpuHandImage.sprite = Resources.Load<Sprite>(string.Format("handImage",cpuHandNum));
 
-        myHandImage.sprite = Resources.Load<Sprite>(string.Format("HandImage/{0}",Data.playerHand));
-        cpuHandImage.sprite = Resources.Load<Sprite>(string.Format("HandImage/{0}",cpuHandNum));
-
-        switch(resultType)
+        switch(result)
         {
             case ResultType.Win:
                 resultText.text = "WIN";
@@ -51,10 +51,12 @@ public class JankenResult : MonoBehaviour
             case ResultType.Drew:
                 resultText.text = "DREW";
                 break;
+            default:
+                break;
         }
     }
 
-    public ResultType GetResult(HandType myHand, HandType cpuHand)
+    public ResultType getResult(HandType myHand, HandType cpuHand)
     {
         switch(myHand)
         {
