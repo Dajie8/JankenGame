@@ -5,16 +5,16 @@ using TMPro;
 
 public enum HandType
 {
-    Rock = 1,
-    Scissor = 2,
-    Papor = 3,
+    Rock = 0,
+    Scissor = 1,
+    Papor = 2,
 }
 
 public enum ResultType
 {
-    Win = 1,
-    Lose = 2,
-    Drew = 3,
+    Win = 0,
+    Lose = 1,
+    Drew = 2,
 }
 
 public class JankenResult : MonoBehaviour
@@ -34,11 +34,12 @@ public class JankenResult : MonoBehaviour
     private void Setup()
     {
         var data = Resources.Load<MyHandData>("myHandData");
-        var cpuHandNum = Random.Range(1,3);
+        var cpuHandNum = Random.Range(0,3);
         var result = getResult((HandType)data.playerHand,(HandType)cpuHandNum);
        
-        myHandImage.sprite = Resources.Load<Sprite>(string.Format("handImage",data.playerHand));
-        cpuHandImage.sprite = Resources.Load<Sprite>(string.Format("handImage",cpuHandNum));
+        myHandImage.sprite = Resources.Load<Sprite>(string.Format("handImage/{0}",data.playerHand));
+        cpuHandImage.sprite = Resources.Load<Sprite>(string.Format("handImage/{0}", cpuHandNum));
+        Debug.Log(data);
 
         switch(result)
         {

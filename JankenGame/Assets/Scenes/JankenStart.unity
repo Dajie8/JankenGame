@@ -488,7 +488,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 267085016}
-        m_TargetAssemblyTypeName: jankenScene, Assembly-CSharp
+        m_TargetAssemblyTypeName: JankenScene, Assembly-CSharp
         m_MethodName: OnTapButton
         m_Mode: 3
         m_Arguments:
