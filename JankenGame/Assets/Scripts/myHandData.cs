@@ -6,7 +6,7 @@ using System.Collections.Generic;
 [CreateAssetMenu(menuName = "playerHandData")]
 public class MyHandData : ScriptableObject
 {
-    [SerializeField] private int _playerHand = 0;
+    [SerializeField] private int _playerHand = 1;
     public int playerHand
     {
         get => _playerHand;

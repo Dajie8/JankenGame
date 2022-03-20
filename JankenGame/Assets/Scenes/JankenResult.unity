@@ -175,7 +175,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myHandImage: {fileID: 722333473}
   cpuHandImage: {fileID: 1109936775}
-  resultText: {fileID: 0}
+  resultText: {fileID: 1244503990}
 --- !u!114 &722333473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -332,7 +332,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myHandImage: {fileID: 722333473}
   cpuHandImage: {fileID: 1109936775}
-  resultText: {fileID: 0}
+  resultText: {fileID: 1244503990}
 --- !u!114 &1109936775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -722,7 +722,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   myHandImage: {fileID: 722333473}
   cpuHandImage: {fileID: 1109936775}
-  resultText: {fileID: 0}
+  resultText: {fileID: 1244503990}
 --- !u!1 &1675630055
 GameObject:
   m_ObjectHideFlags: 0
